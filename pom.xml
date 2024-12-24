@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.siso.sec</groupId>
+  <artifactId>sisosecapi</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>apicontenedor</name>
+  <description>SISO SEC APIS</description>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <!-- Sección de dependencias (todas en system scope) -->
+  <dependencies>
+  
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>SECCore</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/SECCore.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>SECProxy</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/SECProxy.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>ConfigurationRoot</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/ConfigurationRoot.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>CoreServices</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/CoreServices.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/freemarker.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>LogServices</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/LogServices.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>SECSharedMemoryProcessor</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/SECSharedMemoryProcessor.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>SISOConfigurationRoot</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/SISOConfigurationRoot.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sanms.siso</groupId>
+      <artifactId>SocketServices</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/SocketServices.jar</systemPath>
+    </dependency>
+	
+  </dependencies>
+
+  <!-- Plugin para generar un fat JAR -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <!-- Nombre del JAR resultante -->
+              <finalName>siso-sec-api-contenedor</finalName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
